@@ -7,4 +7,4 @@ Frontend Tool: Tkinter
 
 Backend Tool: Python
 
-This is a Simple Tkinter App which is being generated.
+
