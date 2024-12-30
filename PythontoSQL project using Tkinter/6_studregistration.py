@@ -7,7 +7,7 @@ def get_db_connection():
     return mysql.connector.connect(
         host='localhost',
         user='root',
-        password='1234',
+        password='Sunitha@58',
         database='webgui'
     )
 
@@ -156,43 +156,66 @@ def on_treeview_select(event):
         e4.delete(0, tk.END)
         e4.insert(0, fee)
 
+
+# Refresh the input fields
+def refresh_student():
+    e1.delete(0, tk.END)
+    e2.delete(0, tk.END)
+    e3.delete(0, tk.END) 
+    e4.delete(0, tk.END)       
+        
+    messagebox.showinfo("Refresh", "Fields have been cleared!")
+
+# To exit the app
+def exit():
+    result = messagebox.askquestion("Exit", "Are you sure you want to exit?")
+    if result == 'yes':
+        root.quit()
+    
 # Create the main window
 root = tk.Tk()
-root.geometry('600x500')
+root.geometry('600x600') #widthxheight
 root.title("Student Registration System")
 
+#tk.Label(root, text="Student Registration System",fg="black", font=(None,30)).place(x=480,y=30)
+# Header Label
+header_label = tk.Label(root, text="Student Registration System", fg="black", font=(None, 20))
+header_label.grid(row=0, column=0, columnspan=5, pady=20)
+
 # Labels and Entry Fields
-tk.Label(root, text="Student ID").grid(row=0, column=0, padx=10, pady=10)
-tk.Label(root, text="Name").grid(row=1, column=0, padx=10, pady=10)
-tk.Label(root, text="Course").grid(row=2, column=0, padx=10, pady=10)
-tk.Label(root, text="Fee").grid(row=3, column=0, padx=10, pady=10)
+tk.Label(root, text="Student ID").grid(row=1, column=0, padx=10, pady=10)
+tk.Label(root, text="Name").grid(row=2, column=0, padx=10, pady=10)
+tk.Label(root, text="Course").grid(row=3, column=0, padx=10, pady=10)
+tk.Label(root, text="Fee").grid(row=4, column=0, padx=10, pady=10)
 
 e1 = tk.Entry(root)
-e1.grid(row=0, column=1, padx=10, pady=10)
+e1.grid(row=1, column=1, padx=10, pady=10)
 e1.config(state="disabled")  # Initially disabled, editable when selecting a student
 
 e2 = tk.Entry(root)
-e2.grid(row=1, column=1, padx=10, pady=10)
+e2.grid(row=2, column=1, padx=10, pady=10)
 
 e3 = tk.Entry(root)
-e3.grid(row=2, column=1, padx=10, pady=10)
+e3.grid(row=3, column=1, padx=10, pady=10)
 
 e4 = tk.Entry(root)
-e4.grid(row=3, column=1, padx=10, pady=10)
+e4.grid(row=4, column=1, padx=10, pady=10)
 
 # Buttons
-tk.Button(root, text="Add", command=add_student).grid(row=4, column=0, padx=10, pady=10)
-tk.Button(root, text="Update", command=update_student).grid(row=4, column=1, padx=10, pady=10)
-tk.Button(root, text="Delete", command=delete_student).grid(row=4, column=2, padx=10, pady=10)
+tk.Button(root, text="Add", command=add_student, bg = "#FE9900", width=12).grid(row=5, column=0, padx=10, pady=10)
+tk.Button(root, text="Update", command=update_student, bg = "#5DE2E7", width=12).grid(row=5, column=1, padx=10, pady=10)
+tk.Button(root, text="Delete", command=delete_student, bg = "#CC6CE7", width=12).grid(row=5, column=2, padx=10, pady=10)
+tk.Button(root, text="Refresh", command=refresh_student, bg = "#BFD641", width=12).grid(row=5, column=3, padx=10, pady=10)
+tk.Button(root, text="Exit", command=exit, bg = "#8D6F64", width=12).grid(row=5, column=4, padx=10, pady=10)
 
 # Treeview to display students
 cols = ("id", "name", "course", "fee")
 listBox = ttk.Treeview(root, columns=cols, show="headings")
-listBox.grid(row=5, column=0, columnspan=3, padx=10, pady=10)
+listBox.grid(row=6, column=0, columnspan=5, padx=10, pady=10)
 
 for col in cols:
     listBox.heading(col, text=col)
-    listBox.column(col, width=150)
+    listBox.column(col, width=125)
 
 # Bind the select event to populate entry fields when a row is clicked
 listBox.bind("<ButtonRelease-1>", on_treeview_select)
