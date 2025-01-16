@@ -1,4 +1,4 @@
-## Student Registration System - Python to SQL using Tkinter
+# Student Registration System - Python to SQL using Tkinter
 
 The Student Registration System is a GUI application created with Python and tkinter. It is designed to manage student data for a course enrollment. This version of the system utilizes a MySQL database to store and retrieve student information, such as id, name, course, fee etc.,
 
