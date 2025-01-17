@@ -14,7 +14,7 @@ print(conn)
 # 2nd way to create a connection
 # from mysql.connector import connection
 
-# conn = connection.MySQLConnection(host = 'localhost',user = 'root', password = 'Sunitha@58')
+# conn = connection.MySQLConnection(host = 'localhost',user = 'root', password = '1234')
 
 # if conn.is_connected():
 #     print("Con es")
