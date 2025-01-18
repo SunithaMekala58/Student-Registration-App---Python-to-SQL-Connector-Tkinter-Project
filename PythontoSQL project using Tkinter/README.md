@@ -10,14 +10,44 @@ The Student Registration System is a GUI application created with Python and tki
   
 # Features:
 
-* Add a new student with details such as id, name, course, fee etc.
-* Delete an existing student from the database
-* Update student information such as name, course, fee etc.,
-* Refresh the records
-* Exit the page.
-  
+* Add Student: Allows the user to add a student with their name, course, and fee to the database.
+* Update Student: Allows the user to update a student's information by selecting them from a list.
+* Delete Student: Allows the user to delete a student's record by selecting them from the list.
+* View Students: Displays all student records from the database in a table-like format using Tkinter's Treeview widget.
+* Refresh: Clears the input fields after operations.
+* Exit: Close the application with a confirmation prompt.
+
+# Install Dependencies
+* Use the following command to install the required dependencies:
+
+pip install mysql-connector-python
+
+# Database Setup
+* Create Database: Open MySQL Workbench or any MySQL client and create a database called webgui.
+
+CREATE DATABASE webgui;
+
+* Create Table: In the webgui database, create a table called registration to store student data. The table structure should look like this:
+
+CREATE TABLE registration (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    course VARCHAR(255) NOT NULL,
+    fee DECIMAL(10, 2) NOT NULL
+);
+
+* Configure Database Connection: Ensure the database credentials in the Python script match your MySQL setup. The script uses:
+
+
+host='localhost',
+user='root',
+password='1234',
+database='webgui'
+
+* Modify the get_db_connection() function if necessary.
+
 # Technologies: 
 
 * Python
 * Tkinter
-*  MySQL
+* MySQL
