@@ -51,3 +51,6 @@ database='webgui'
 * Python
 * Tkinter
 * MySQL
+
+
+![image](https://github.com/user-attachments/assets/35a4f17e-28a5-4eee-8910-61f431b9fdad)
