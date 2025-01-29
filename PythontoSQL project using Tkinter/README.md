@@ -52,5 +52,5 @@ database='webgui'
 * Tkinter
 * MySQL
 
+![tkinter](https://github.com/user-attachments/assets/71f9f89f-7d8f-4e4a-ab78-b601f058c488)
 
-![image](https://github.com/user-attachments/assets/35a4f17e-28a5-4eee-8910-61f431b9fdad)
