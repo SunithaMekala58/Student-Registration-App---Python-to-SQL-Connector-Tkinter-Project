@@ -29,7 +29,7 @@ print(conn)
 # dict = {
 #         'host' : 'localhost',
 #         'user' : 'root', 
-#         'password' : 'Sunitha@58'
+#         'password' : '1234'
 #         }
 
 # conn = connection.MySQLConnection(**dict)
