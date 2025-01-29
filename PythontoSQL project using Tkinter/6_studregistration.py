@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
+from PIL import Image, ImageTk  # For handling images
 import mysql.connector
 
 # Function to create a database connection
@@ -177,16 +178,29 @@ root = tk.Tk()
 root.geometry('600x600') #widthxheight
 root.title("Student Registration System")
 
+# Set background color for the main window
+root.configure(bg="#f0f0f0")
+
+# Load and set a background image
+try:
+    bg_image = Image.open("background.jpg")  # Replace with your image path
+    bg_image = bg_image.resize((600, 600), Image.Resampling.LANCZOS)
+    bg_photo = ImageTk.PhotoImage(bg_image)
+    bg_label = tk.Label(root, image=bg_photo)
+    bg_label.place(relwidth=1, relheight=1)
+except Exception as e:
+    print(f"Error loading background image: {e}")
+
 #tk.Label(root, text="Student Registration System",fg="black", font=(None,30)).place(x=480,y=30)
 # Header Label
-header_label = tk.Label(root, text="Student Registration System", fg="black", font=(None, 20))
+header_label = tk.Label(root, text="Student Registration System", fg="maroon", bg = "sky blue", font=("Arial", 20, "bold"))
 header_label.grid(row=0, column=0, columnspan=5, pady=20)
 
 # Labels and Entry Fields
-tk.Label(root, text="Student ID").grid(row=1, column=0, padx=10, pady=10)
-tk.Label(root, text="Name").grid(row=2, column=0, padx=10, pady=10)
-tk.Label(root, text="Course").grid(row=3, column=0, padx=10, pady=10)
-tk.Label(root, text="Fee").grid(row=4, column=0, padx=10, pady=10)
+tk.Label(root, text="Student ID",fg="black", font=("Arial", 12, "bold")).grid(row=1, column=0, padx=10, pady=10)
+tk.Label(root, text="Name",fg="black", font=("Arial", 12, "bold")).grid(row=2, column=0, padx=10, pady=10)
+tk.Label(root, text="Course", fg="black", font=("Arial", 12, "bold")).grid(row=3, column=0, padx=10, pady=10)
+tk.Label(root, text="Fee", fg="black", font=("Arial", 12, "bold")).grid(row=4, column=0, padx=10, pady=10)
 
 e1 = tk.Entry(root)
 e1.grid(row=1, column=1, padx=10, pady=10)
@@ -208,8 +222,22 @@ tk.Button(root, text="Delete", command=delete_student, bg = "#CC6CE7", width=12)
 tk.Button(root, text="Refresh", command=refresh_student, bg = "#BFD641", width=12).grid(row=5, column=3, padx=10, pady=10)
 tk.Button(root, text="Exit", command=exit, bg = "#8D6F64", width=12).grid(row=5, column=4, padx=10, pady=10)
 
+
+# Create a style for the Treeview
+style = ttk.Style()
+style.configure("Treeview", 
+                background="grey",  # Background color of rows
+                foreground="black",  # Text color
+                rowheight=25)        # Row height)
+
+# Style for Treeview Header
+style.configure("Treeview.Heading", 
+                font=("Arial", 12, "bold"),  # Bold header text
+                background="maroon",  # Background color for headers
+                foreground="green")  # Text color for headers
+
 # Treeview to display students
-cols = ("id", "name", "course", "fee")
+cols = ("Id", "Name", "Course", "Fee")
 listBox = ttk.Treeview(root, columns=cols, show="headings")
 listBox.grid(row=6, column=0, columnspan=5, padx=10, pady=10)
 
