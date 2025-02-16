@@ -53,7 +53,8 @@ database='webgui'
 * MySQL
 
 
-![image](https://github.com/user-attachments/assets/35a4f17e-28a5-4eee-8910-61f431b9fdad)
+![image](https://github.com/user-attachments/assets/e22b6a7f-7e95-446a-b419-7255615e1316)
+
 
 
 
